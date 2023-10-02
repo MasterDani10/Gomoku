@@ -1,10 +1,12 @@
 public class Board {
-    public static void main(String[] args){
-        int n = 14;
-        int m = 15;
-        int[][] board = new int[m][n];
+    int[][] board;
+    Board(int[][] board){
+        this.board = board;
+    }
 
-
+    public void drawBoard(){
+        int n = board.length-1;
+        int m = board.length;
         System.out.println();
         for(int x = 1; x <= n+1; x++){
             if(x == 1){
@@ -42,8 +44,5 @@ public class Board {
 
             }
         }
-
-
-
     }
 }
