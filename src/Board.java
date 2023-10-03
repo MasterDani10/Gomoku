@@ -42,6 +42,40 @@ public class Board {
                     }
                 }
 
+                if(board[i][j] == 1){
+                    if(j == 0){
+                        if(i > 8){
+                            System.out.print(i + 1 + "    O   ");
+                        }
+                        else {
+                            System.out.print(i + 1 + "     O   ");
+                        }
+                    }
+                    else if(j == n-1){
+                        System.out.println("O");
+                    }
+                    else {
+                        System.out.print("O   ");
+                    }
+                }
+
+                if(board[i][j] == 2){
+                    if(j == 0){
+                        if(i > 8){
+                            System.out.print(i + 1 + "    X   ");
+                        }
+                        else {
+                            System.out.print(i + 1 + "     X   ");
+                        }
+                    }
+                    else if(j == n-1){
+                        System.out.println("X");
+                    }
+                    else {
+                        System.out.print("X   ");
+                    }
+                }
+
             }
         }
     }
