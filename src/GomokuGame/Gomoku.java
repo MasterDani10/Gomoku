@@ -2,20 +2,22 @@ package GomokuGame;
 
 public class Gomoku {
 
-   private final Player player1;
-   private final Player player2;
+   private Player player1;
+   private Player player2;
    private GameType gameType;
-   private final Board board;
-   private final GameUI gameUI;
+   private Board board;
+   private  GameUI gameUI;
 
-   public Gomoku(Player player1, Player player2, GameType gameType, int board){
-       this.player1 = player1;
-       this.player2 = player2;
-       this.gameType = gameType;
-       this.board = new Board(board);
+   public Gomoku(){
+       this.player1 = new Player("Player 1");
+       this.player2 = new Player("Player 2");
+       this.gameType = GameType.Human();
+       this.board = new Board(15);
        this.gameUI = new GameUI(this);
    }
-   public void startGame(){
+
+
+    public void startGame(){
        gameUI.welcomeUser();
 
        if(gameType == null){
@@ -51,7 +53,8 @@ public class Gomoku {
    }
 
    public static void main(String[] args){
-
+        Gomoku game = new Gomoku();
+        game.startGame();
    }
 
 }
