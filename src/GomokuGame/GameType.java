@@ -1,12 +1,14 @@
 package GomokuGame;
 
-public class GameType {
+public enum GameType {
+    HUMAN,
+    STRATEGY;
 
     public static GameType Human() {
-        return null;
+        return HUMAN;
     }
 
     public static GameType Strategy() {
-        return null;
+        return STRATEGY;
     }
 }

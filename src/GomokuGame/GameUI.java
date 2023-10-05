@@ -31,8 +31,7 @@ public class GameUI{
     }
 
     public void placeStone(int x, int y, int movePlayer1) {
-        game.getBoard().move(x, y, movePlayer1);
-        displayBoard();
+        game.getBoard().createBoard();
     }
 
     private void displayBoard() {
@@ -45,6 +44,33 @@ public class GameUI{
         }
     }
 
-    public void findWinner() {
+    public boolean findWinner() {
+        int[][] board = game.getBoard().getBoardInfo();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] != 0 &&
+                        (checkDirection(board, i, j, 1, 0) ||
+                         checkDirection(board, i, j, 0, 1) ||
+                         checkDirection(board, i, j, 1, 1) ||
+                         checkDirection(board, i, j, 1, -1))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean checkDirection(int[][] board, int x, int y, int dx, int dy) {
+        int n = board.length;
+        int player = board[x][y];
+
+        for (int i = 0; i < 5; i++){
+            int newX = x + dx * i;
+            int newY = y + dy * i;
+            if (newX < 0 || newX >= n || newY < 0 || newY >= n || board[newX][newY] != player) {
+                return false;
+            }
+        }
+        return true;
     }
 }
