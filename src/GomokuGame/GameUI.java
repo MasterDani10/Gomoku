@@ -14,8 +14,8 @@ public class GameUI{
     }
     public Object promptForGameMode(){
         System.out.println("Select a game mode: ");
-        System.out.println("1. Human");
-        System.out.println("2. Strategy");
+        System.out.println("(1) Human");
+        System.out.println("(2) Strategy");
 
         int choice = input.nextInt();
 

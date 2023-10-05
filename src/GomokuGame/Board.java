@@ -8,17 +8,74 @@ public class Board{
         this.board = new int[size][size];
     }
     public void createBoard(){
+        int n = board.length;
+        for(int x = 1; x <= n; x++){
+            if(x == 1){
+                System.out.print("      " + x + " ");
+            }
+            else if(x == n){
+                System.out.println(" " + x);
+            }
+            else if(x > 9){
+                System.out.print(" " + x + " ");
+            }
+            else {
+                System.out.print("  " + x + " ");
+            }
+        }
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 switch(board[j][i]){
                     case 0:
-                        System.out.print(". ");
+                        if(j == 0){
+                            if(i > 8){
+                                System.out.print(i+1 + "    .   ");
+                            }
+                            else {
+                                System.out.print(i+1 + "     .   ");
+                            }
+                        }
+                        else if(j == board[i].length){
+                            System.out.println(".");
+                        }
+                        else{
+                            System.out.print(".   ");
+                        }
+
                         break;
                     case 1:
-                        System.out.print("X ");
+                        if(j == 0){
+                            if(i > 8){
+                                System.out.print(i+1 + "    O   ");
+                            }
+                            else {
+                                System.out.print(i+1 + "     O   ");
+                            }
+                        }
+                        else if(j == board[i].length){
+                            System.out.println("O");
+                        }
+                        else{
+                            System.out.print("O   ");
+                        }
+                        //System.out.print("X ");
                         break;
                     case 2:
-                        System.out.print("O");
+                        if(j == 0){
+                            if(i > 8){
+                                System.out.print(i+1 + "    X   ");
+                            }
+                            else {
+                                System.out.print(i+1 + "     X   ");
+                            }
+                        }
+                        else if(j == board[i].length){
+                            System.out.println("X");
+                        }
+                        else{
+                            System.out.print("X   ");
+                        }
+                        //System.out.print("X");
                         break;
                     default:
                         System.out.print("? ");

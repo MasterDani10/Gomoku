@@ -16,13 +16,14 @@ public class Player{
         return null;
     }
     public int[] move(){
-        System.out.println(name + " Enter row: ");
-        int row = input.nextInt();
+        System.out.println(name + " Turn ");
+        System.out.println("Enter row:");
+        int row = input.nextInt()-1;
 
-        System.out.println(" Enter column: ");
-        int col = input.nextInt();
+        System.out.println("Enter column:");
+        int col = input.nextInt()-1;
 
-        return new int[] {row, col};
+        return new int[] {col, row};
     }
 
 }
