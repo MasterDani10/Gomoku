@@ -24,19 +24,33 @@ public class Gomoku {
            gameType = (GameType) gameUI.promptForGameMode();
        }
        board.createBoard();
-       boolean endedGame = false;
-       while(true){
-           int movePlayer1 = player1.move();
-           board.move(0,0, movePlayer1);
-           gameUI.placeStone(0, 0, movePlayer1);
-           if(endedGame) break;
 
-           int movePlayer2 = player2.move();
-           board.move(0, 0, movePlayer2);
-           gameUI.placeStone(0, 0, movePlayer2);
-           endedGame = endGame();
+       while(true) {
+           int[] movePlayer1 = player1.move();
+           board.move(movePlayer1[0], movePlayer1[1], 1);
+           gameUI.placeStone(movePlayer1[0], movePlayer1[1], 1);
+           if (gameUI.findWinner()) {
+               System.out.println("Player 1 wins!");
+               return;
+           }
+           if (endGame()) {
+               System.out.println("Its a draw!");
+               return;
+           }
+           int[] movePlayer2 = player2.move();
+           board.move(movePlayer2[0], movePlayer2[1], 2);
+           gameUI.placeStone(movePlayer2[0], movePlayer2[1], 2);
+
+           if (gameUI.findWinner()) {
+               System.out.println("Player 2 wins!");
+               return;
+           }
+           if (endGame()) {
+               System.out.println("Its a draw!");
+               return;
+
+           }
        }
-       gameUI.findWinner();
    }
    public boolean endGame(){
        for (int i = 0; i < board.board.length ; i++) {
