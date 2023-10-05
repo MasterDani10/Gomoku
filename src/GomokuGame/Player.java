@@ -16,13 +16,32 @@ public class Player{
         return null;
     }
     public int[] move(){
+        boolean repeat = false;
         System.out.println(name + " Turn ");
         System.out.println("Enter row:");
-        int row = input.nextInt()-1;
+        int row = input.nextInt();
 
         System.out.println("Enter column:");
-        int col = input.nextInt()-1;
+        int col = input.nextInt();
 
+        if(row > 15 || row < 1 || col > 15 || col < 1){
+            repeat = true;
+        }
+        while(repeat){
+            System.out.println("Sorry " + name + ", invalid coordinates please input a " +
+                    "number greater than 0 and less than 16");
+            System.out.println("Enter row:");
+            row = input.nextInt();
+
+            System.out.println("Enter column:");
+            col = input.nextInt();
+            if(row <= 15 && row >= 1 && col <= 15 && col >= 1){
+                repeat = false;
+            }
+        }
+
+        col -= 1;
+        row -= 1;
         return new int[] {col, row};
     }
 

@@ -13,11 +13,27 @@ public class GameUI{
         System.out.println("Welcome to Gomoku");
     }
     public Object promptForGameMode(){
+        boolean repeat = true;
+        int choice;
         System.out.println("Select a game mode: ");
         System.out.println("(1) Human");
         System.out.println("(2) Strategy");
+        choice = input.nextInt();
+        if(choice == 1 || choice == 2){
+            repeat = false;
+        }
 
-        int choice = input.nextInt();
+        while(repeat) {
+            System.out.println("Sorry, please enter 1 or 2 to Select a game mode: ");
+            System.out.println("(1) Human");
+            System.out.println("(2) Strategy");
+            choice = input.nextInt();
+            if(choice == 1 || choice == 2){
+                repeat = false;
+            }
+
+
+        }
 
         switch(choice){
             case 1:
@@ -50,9 +66,9 @@ public class GameUI{
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] != 0 &&
                         (checkDirection(board, i, j, 1, 0) ||
-                         checkDirection(board, i, j, 0, 1) ||
-                         checkDirection(board, i, j, 1, 1) ||
-                         checkDirection(board, i, j, 1, -1))) {
+                                checkDirection(board, i, j, 0, 1) ||
+                                checkDirection(board, i, j, 1, 1) ||
+                                checkDirection(board, i, j, 1, -1))) {
                     return true;
                 }
             }
