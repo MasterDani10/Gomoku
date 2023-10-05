@@ -20,7 +20,7 @@ public class Gomoku {
     public void startGame(){
        gameUI.welcomeUser();
 
-       if(gameType == null){
+       if(gameType != null){
            gameType = (GameType) gameUI.promptForGameMode();
        }
        board.createBoard();
