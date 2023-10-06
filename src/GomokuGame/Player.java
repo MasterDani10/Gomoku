@@ -12,17 +12,23 @@ public class Player{
     public void play(){
         System.out.println(name + " is now playing.");
     }
-    public Strategy selectStrategy(){
-        return null;
-    }
+    //    public Strategy selectStrategy(){
+//        return null;
+//    }
     public int[] move(){
         boolean repeat = false;
-        System.out.println(name + " Turn ");
+        System.out.println(name + " Turn   (If you want to exit the game enter -1)");
         System.out.println("Enter row:");
         int row = input.nextInt();
+        if(row == -1){
+            return null;
+        }
 
         System.out.println("Enter column:");
         int col = input.nextInt();
+        if(col == -1){
+            return null;
+        }
 
         if(row > 15 || row < 1 || col > 15 || col < 1){
             repeat = true;

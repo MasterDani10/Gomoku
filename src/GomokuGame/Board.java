@@ -84,6 +84,7 @@ public class Board{
             }
             System.out.println();
         }
+        System.out.println();
     }
     public void move(int x, int y, int player){
         if(board[x][y] == 0){
@@ -94,6 +95,7 @@ public class Board{
         }
     }
     public int[][] getBoardInfo(){
+
         return this.board;
     }
 }
