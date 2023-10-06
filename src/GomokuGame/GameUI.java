@@ -20,8 +20,8 @@ public class GameUI{
             System.out.println("(1) Human");
             System.out.println("(2) Strategy");
 
-
             choice = input.nextInt();
+
             if(choice == 1 || choice == 2){
                 repeat = false;
             }
